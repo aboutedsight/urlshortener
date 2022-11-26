@@ -26,5 +26,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
   // return res.redirect(data.url);
+  res.setHeader("Content-Type", "application/json")
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Cache-Control", "s-maxage=100000, stale-while-revalidate")
+
   return res.json(data);
 }
