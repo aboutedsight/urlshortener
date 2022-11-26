@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { prisma } from "../../db/client"
+import { prisma } from "../../../db/client"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // res.status(200).json({ name: 'John Doe' })
@@ -25,5 +25,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.send(JSON.stringify({ message: "no slug found!" }))
     return;
   }
-  return res.redirect(data.url);
+  // return res.redirect(data.url);
+  return res.json(data);
 }
